@@ -1,0 +1,39 @@
+.sidenav-container, .mat-sidenav-content {
+  background: white;
+  min-height: 100vh;
+  color: black;
+}
+.sidenav {
+  border-radius: 0 !important;
+}
+
+.content {
+  padding: 20px;
+}
+
+  
+  .menu-text {
+    margin-left: 10px;
+  }
+  
+  .hide-on-large {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .sidenav {
+      display: none;
+    }
+    .hide-on-large {
+      display: block;
+    }
+  }
+  
+
+  .custom-snackbar {
+    background-color: #2196f3; /* Azul Material */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+  
