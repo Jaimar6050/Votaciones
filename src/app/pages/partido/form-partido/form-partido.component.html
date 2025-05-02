@@ -1,0 +1,71 @@
+<!-- <div class="modal fade" id="modalPartido" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="modal-header">
+            <h5 class="modal-title">Nuevo Partido</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+  
+          <div class="modal-body">
+            <input formControlName="nombre" class="form-control mb-2" placeholder="Nombre" />
+            <input formControlName="siglas" class="form-control mb-2" placeholder="Siglas" />
+            <input formControlName="nombreCandidato" class="form-control mb-2" placeholder="Candidato" />
+            <textarea formControlName="descripcion" class="form-control mb-2" placeholder="Descripción"></textarea>
+  
+            <label>Logo:</label>
+            <input type="file" (change)="onLogoChange($event)" class="form-control mb-2" />
+  
+            <label>Foto Candidato:</label>
+            <input type="file" (change)="onFotoChange($event)" class="form-control mb-2" />
+          </div>
+  
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+   -->
+
+   <form [formGroup]="form" (ngSubmit)="enviar()" enctype="multipart/form-data" class="p-3">
+    <div class="mb-3">
+      <label class="form-label">Nombre</label>
+      <input type="text" class="form-control" formControlName="nombre">
+    </div>
+  
+    <div class="mb-3">
+      <label class="form-label">Siglas</label>
+      <input type="text" class="form-control" formControlName="siglas">
+    </div>
+  
+    <div class="mb-3">
+      <label class="form-label">Nombre del Candidato</label>
+      <input type="text" class="form-control" formControlName="nombreCandidato">
+    </div>
+  
+    <div class="mb-3">
+      <label class="form-label">Descripción</label>
+      <textarea class="form-control" rows="3" formControlName="descripcion"></textarea>
+    </div>
+  
+    <div class="mb-3">
+      <label class="form-label">Logo (imagen)</label>
+      <input type="file" class="form-control" (change)="onFileChange($event, 'logo')">
+    </div>
+  
+    <div class="mb-3">
+      <label class="form-label">Foto del Candidato (imagen)</label>
+      <input type="file" class="form-control" (change)="onFileChange($event, 'fotoCandidato')">
+    </div>
+  
+    <div *ngIf="msg()" class="alert alert-danger">{{ msg() }}</div>
+  
+    <div class="text-end">
+      <button type="reset" class="btn btn-secondary me-2">Limpiar</button>
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Guardar</button>
+    </div>
+  </form>
+  

@@ -13,11 +13,17 @@ export const routes: Routes = [
             {
                 path:'persona',
                 loadComponent:() => import('./pages/persona/persona.component').then(c =>c.PersonaComponent) 
-            },
-            //{
-            //     path:'usuario',
-            //     loadComponent:() => import('./pages/usuario/usuario.component').then(c => c.UsuarioComponent)
-            // }
+            },{
+                path:'partidos',
+                loadComponent:() => import('./pages/partido/partido.component').then(c =>c.PartidoComponent)
+            },{
+                path:'cronograma',
+                loadComponent:() => import('./pages/cronograma/cronograma.component').then(c =>c.CronogramaComponent)
+            },{
+                path:'propuestas',
+                loadComponent:() => import('./pages/propuesta/propuesta.component').then(c =>c.PropuestaComponent)
+            }
+
         ]
     },
 ];

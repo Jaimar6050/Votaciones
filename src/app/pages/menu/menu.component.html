@@ -6,10 +6,21 @@
           <mat-icon>person</mat-icon>
           <span class="menu-text">Personas</span>
         </a>
-        <a mat-list-item routerLink="/partidos">
+        <a mat-list-item routerLink="/menu/partidos" [routerLinkActive]="['activelink']" (click)="mostrarNotificacion('Sección Partidos')">
           <mat-icon>groups</mat-icon>
           <span class="menu-text">Partidos</span>
         </a>
+        
+        <a mat-list-item routerLink="/menu/cronograma" [routerLinkActive]="['activelink']">
+          <mat-icon>event</mat-icon>
+          <span class="menu-text">Cronograma</span>
+        </a>
+
+        <a mat-list-item routerLink="/menu/propuestas" [routerLinkActive]="['activelink']">
+          <mat-icon>lightbulb</mat-icon>
+          <span class="menu-text">Propuestas</span>
+        </a>
+
         <a mat-list-item routerLink="/votaciones">
           <mat-icon>how_to_vote</mat-icon>
           <span class="menu-text">Votaciones</span>

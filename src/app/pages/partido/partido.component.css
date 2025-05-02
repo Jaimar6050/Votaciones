@@ -1,0 +1,84 @@
+.partido-card {
+    position: relative;
+    background: linear-gradient(to bottom right, #e8f0fe, #ffffff);
+    border-radius: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    height: 400px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .partido-card:hover {
+    filter: brightness(0.9);
+  }
+  
+  .card-background {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 150px;
+    opacity: 0.70;
+    z-index: 1;
+    margin-left: -30px;
+  }
+  
+  .foto-candidato {
+    position: relative;
+    z-index: 2;
+    height: 80%;
+    float: right;
+    margin-top: 10px;
+    margin-right: 4px;
+    border-radius: 1rem;
+    object-fit: cover;
+  }
+  
+  .nombre-partido {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    text-align: center;
+    z-index: 5;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+  
+  
+  .hover-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.75);
+    opacity: 0;
+    padding: 1rem;
+    z-index: 10; /* Muy por encima de todo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    border-radius: 1rem;
+  }
+  
+  .partido-card:hover .hover-info {
+    opacity: 1;
+  }
+  

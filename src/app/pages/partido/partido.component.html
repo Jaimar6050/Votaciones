@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <button class="btn btn-primary my-3" (click)="nuevo()">
+    Nuevo Partido
+  </button>
+  <h2 class="mb-4">Lista de Partidos</h2>
+
+  <div class="row">
+    @for(partido of partidoResource.value() ?? []; track partido.id) {
+      <div class="col-md-4 mb-4">
+        <div class="partido-card" >
+          <div class="card-background">
+            <img 
+              [src]="'http://localhost:3000/uploads/partidos/' + partido.logo" 
+              class="logo" 
+              alt="logo partido" />
+            <img 
+              [src]="'http://localhost:3000/uploads/partidos/' + partido.fotoCandidato" 
+              class="foto-candidato" 
+              alt="foto candidato" />
+          </div>
+          <div class="nombre-partido">
+            {{ partido.nombre }}
+          </div>
+          <div class="hover-info">
+            <h4>{{ partido.siglas }}</h4>
+            <p>{{ partido.descripcion }}</p>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
