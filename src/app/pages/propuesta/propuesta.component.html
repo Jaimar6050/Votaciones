@@ -3,7 +3,7 @@
   </button>
 <div class="container mt-4">
     <h2>Propuestas</h2>
-  
+
     <table class="table table-bordered table-hover">
       <thead class="table-dark">
         <tr>
@@ -18,28 +18,31 @@
             <tr>
               <td>{{ propuesta.nombre }}</td>
               <td>{{ propuesta.descripcion }}</td>
-              <td>{{ propuesta.partidoId }}</td>
+              <td>
+                {{ getNombrePartido(propuesta.partidoId) }}
+
+              </td>
               <td>
                 <div class="d-flex justify-content-center gap-2">
                   <!-- Botón Editar -->
                   <button class="btn btn-sm btn-outline-primary" title="Editar" (click)="editar(propuesta)">
                       <i class="fas fa-pen"></i>
                   </button>
-          
+
                   <!-- Botón Eliminar -->
-                  <button 
+                  <button
                       class="btn btn-sm btn-outline-danger" title="Deshabilitar" (click)="eliminar(propuesta)">
                       <i class="fas fa-trash"></i>
                   </button>
                 </div>
               </td>
-                
+
             </tr>
           }
         </tbody>
-        
+
     </table>
-    
+
   </div>
 
   @if(isLoading()){

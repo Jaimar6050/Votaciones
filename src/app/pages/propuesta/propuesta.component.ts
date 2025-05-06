@@ -6,6 +6,7 @@ import { FormPropuestaComponent } from './form-propuesta/form-propuesta.componen
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { PartidoService } from '../partido/partido.service';
 
 export interface Propuesta{
   id?: string,
@@ -21,11 +22,13 @@ export interface Propuesta{
   styleUrl: './propuesta.component.css'
 })
 export class PropuestaComponent {
+   partidoService = inject(PartidoService);
+  partidos = signal<{ id: string; nombre: string }[]>([]);
   propuestaService = inject(PropuestaService);
   loading = signal(false);
   isLoading = computed(()=>this.loading());
   dialog = inject(MatDialog);
-  propuesta:Propuesta={};	
+  propuesta:Propuesta={};
 
 
   propuestaResource = rxResource({
@@ -82,6 +85,15 @@ export class PropuestaComponent {
         },
       });
     }
+  }
+  constructor() {
+    this.partidoService.getAll().subscribe((res: any) => {
+      this.partidos.set(res.data.data);
+    });
+  }
+  getNombrePartido(partidoId: string): string {
+    const partido = this.partidos().find(p => p.id === partidoId);
+    return partido ? partido.nombre : 'Desconocido';
   }
 
 }

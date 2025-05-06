@@ -3,7 +3,7 @@
   </button>
 <div class="container mt-4">
     <h2>Cronograma</h2>
-  
+
     <table class="table table-bordered table-hover">
       <thead class="table-dark">
         <tr>
@@ -22,16 +22,20 @@
               <td>{{ cronograma.fecha | date:'yyyy-MM-dd' }}</td>
               <td>{{ cronograma.hora }}</td>
               <td>{{ cronograma.descripcion }}</td>
-              <td>{{ cronograma.partidoId }}</td>
+              <td>
+                {{ getNombrePartido(cronograma.partidoId) }}
+
+              </td>
+
               <td>
                 <div class="d-flex justify-content-center gap-2">
                   <!-- Botón Editar -->
                   <button class="btn btn-sm btn-outline-primary" title="Editar" (click)="editar(cronograma)">
                       <i class="fas fa-pen"></i>
                   </button>
-          
+
                   <!-- Botón Eliminar -->
-                  <button 
+                  <button
                       class="btn btn-sm btn-outline-danger" title="Deshabilitar" (click)="eliminar(cronograma)">
                       <i class="fas fa-trash"></i>
                   </button>
@@ -40,7 +44,7 @@
             </tr>
           }
         </tbody>
-        
+
     </table>
-    
+
   </div>

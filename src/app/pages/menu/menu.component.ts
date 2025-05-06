@@ -6,10 +6,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { CommonModule } from '@angular/common';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatMenuModule } from '@angular/material/menu';
 @Component({
   selector: 'app-menu',
   imports: [
+    CommonModule,
     RouterModule,
     RouterLink,
     RouterLinkActive,
@@ -18,19 +21,21 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatListModule,
     MatIconModule,
     MatButtonModule,
+    MatBadgeModule,
+    MatMenuModule,
   ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
-  constructor(private snackBar: MatSnackBar) {} 
+  constructor(private snackBar: MatSnackBar) {}
 
   mostrarNotificacion(mensaje: string) {
     this.snackBar.open(mensaje, 'Cerrar', {
-      duration: 3000, 
+      duration: 3000,
       horizontalPosition: 'center',
       verticalPosition: 'top',
-      panelClass: ['custom-snackbar'] 
+      panelClass: ['custom-snackbar']
     });
   }
 }

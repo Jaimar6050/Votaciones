@@ -12,7 +12,7 @@ export const routes: Routes = [
         children:[
             {
                 path:'persona',
-                loadComponent:() => import('./pages/persona/persona.component').then(c =>c.PersonaComponent) 
+                loadComponent:() => import('./pages/persona/persona.component').then(c =>c.PersonaComponent)
             },{
                 path:'partidos',
                 loadComponent:() => import('./pages/partido/partido.component').then(c =>c.PartidoComponent)
@@ -22,7 +22,13 @@ export const routes: Routes = [
             },{
                 path:'propuestas',
                 loadComponent:() => import('./pages/propuesta/propuesta.component').then(c =>c.PropuestaComponent)
-            }
+            },{
+              path:'galeria',
+              loadComponent:() => import('./pages/galeria/galeria.component').then(c =>c.GaleriaComponent)
+          },{
+            path:'votacion',
+            loadComponent:() => import('./pages/votacion/votacion.component').then(c =>c.VotacionComponent)
+        }
 
         ]
     },

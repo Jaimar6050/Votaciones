@@ -1,0 +1,35 @@
+<form [formGroup]="form" class="formulario-persona">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>ID de Persona</mat-label>
+    <input matInput placeholder="Ingrese su ID" formControlName="personaId" autocomplete="off">
+    <mat-icon matPrefix>badge</mat-icon>
+  </mat-form-field>
+</form>
+
+<div class="partido-lista">
+  <mat-card class="partido-card" *ngFor="let partido of partidos">
+    <mat-card-header>
+      <div mat-card-avatar class="avatar-logo" *ngIf="partido.logo">
+
+        <img
+          [src]="'http://localhost:3000/uploads/partidos/' + partido.logo"
+          alt="logo"
+          class="w-16 h-16 rounded-full object-cover shadow mt-4"
+        />
+      </div>
+      <mat-card-title>{{ partido.nombre }}</mat-card-title>
+      <mat-card-subtitle>{{ partido.siglas }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>{{ partido.descripcion }}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-flat-button color="accent" (click)="votar(partido.id)">
+        <mat-icon>how_to_vote</mat-icon>
+        Votar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

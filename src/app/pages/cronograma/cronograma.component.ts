@@ -5,6 +5,7 @@ import { map } from 'rxjs';
 import { FormCronogramaComponent } from './form-cronograma/form-cronograma.component';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
+import { PartidoService } from '../partido/partido.service';
 
 export interface Cronograma{
   id?: string,
@@ -21,10 +22,12 @@ export interface Cronograma{
   styleUrl: './cronograma.component.css'
 })
 export class CronogramaComponent {
+  partidoService = inject(PartidoService);
+partidos = signal<{ id: string; nombre: string }[]>([]);
   cronogramaService = inject(CronogramaService);
   loading = signal(false);
   dialog = inject(MatDialog);
-  cronograma:Cronograma={};	
+  cronograma:Cronograma={};
 
 
   cronogramaResource = rxResource({
@@ -61,7 +64,7 @@ export class CronogramaComponent {
 
   eliminar(cronograma: Cronograma) {
     if (!cronograma.id) return;
-  
+
     const confirmado = confirm(`¿Estás seguro de eliminar el cronograma "${cronograma.actividad}"?`);
     if (confirmado) {
       this.cronogramaService.delete(cronograma.id).subscribe({
@@ -82,6 +85,17 @@ export class CronogramaComponent {
   editar(item: any) {
     this.openDialog(item);
   }
-  
+  constructor() {
+    this.partidoService.getAll().subscribe((res: any) => {
+      this.partidos.set(res.data.data);
+    });
+  }
+  getNombrePartido(partidoId: string): string {
+    const partido = this.partidos().find(p => p.id === partidoId);
+    return partido ? partido.nombre : 'Desconocido';
+  }
+
+
+
 
 }

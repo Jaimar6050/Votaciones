@@ -1,44 +1,39 @@
-<mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #drawer mode="side" opened class="sidenav">
-      <mat-toolbar color="primary">Menú</mat-toolbar>
-      <mat-nav-list>
-        <a mat-list-item routerLink="/menu/persona" [routerLinkActive]="['activelink']"  (click)="mostrarNotificacion('Sección Personas')">
-          <mat-icon>person</mat-icon>
-          <span class="menu-text">Personas</span>
-        </a>
-        <a mat-list-item routerLink="/menu/partidos" [routerLinkActive]="['activelink']" (click)="mostrarNotificacion('Sección Partidos')">
-          <mat-icon>groups</mat-icon>
-          <span class="menu-text">Partidos</span>
-        </a>
-        
-        <a mat-list-item routerLink="/menu/cronograma" [routerLinkActive]="['activelink']">
-          <mat-icon>event</mat-icon>
-          <span class="menu-text">Cronograma</span>
-        </a>
+<mat-toolbar class="custom-navbar">
+  <div class="navbar-left">
+    <mat-icon class="logo-icon">how_to_vote</mat-icon>
+    <span class="title">Votaciones 2025</span>
+  </div>
 
-        <a mat-list-item routerLink="/menu/propuestas" [routerLinkActive]="['activelink']">
-          <mat-icon>lightbulb</mat-icon>
-          <span class="menu-text">Propuestas</span>
-        </a>
+  <div class="navbar-links">
 
-        <a mat-list-item routerLink="/votaciones">
-          <mat-icon>how_to_vote</mat-icon>
-          <span class="menu-text">Votaciones</span>
-        </a>
-        
-      </mat-nav-list>
-    </mat-sidenav>
-  
-    <mat-sidenav-content>
-      <mat-toolbar color="primary">
-        <button mat-icon-button (click)="drawer.toggle()" class="hide-on-large">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span>Votaciones 2025</span>
-      </mat-toolbar>
-      <div class="content">
-        <router-outlet></router-outlet>
-      </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  
+
+    <a mat-button routerLink="/menu/partidos" routerLinkActive="activelink" (click)="mostrarNotificacion('Sección Partidos')">
+      <mat-icon>groups</mat-icon>
+      <span>Partidos</span>
+    </a>
+
+    <a mat-button routerLink="/menu/cronograma" routerLinkActive="activelink">
+      <mat-icon>event</mat-icon>
+      <span>Cronograma</span>
+    </a>
+
+    <a mat-button routerLink="/menu/propuestas" routerLinkActive="activelink">
+      <mat-icon>lightbulb</mat-icon>
+      <span>Propuestas</span>
+    </a>
+
+    <a mat-button routerLink="/menu/galeria" routerLinkActive="activelink">
+      <mat-icon>photo_library</mat-icon>
+      <span>Galería</span>
+    </a>
+
+    <a mat-button routerLink="/menu/votacion" routerLinkActive="activelink">
+      <mat-icon>how_to_vote</mat-icon>
+      <span>Votaciones</span>
+    </a>
+  </div>
+</mat-toolbar>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

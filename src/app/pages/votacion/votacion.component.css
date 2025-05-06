@@ -1,0 +1,32 @@
+.formulario-persona {
+  margin-bottom: 1.5rem;
+  max-width: 400px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.partido-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.partido-card {
+  background-color: #afb4c0;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease;
+}
+
+.partido-card:hover {
+  transform: translateY(-5px);
+}
+
+.avatar-logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
